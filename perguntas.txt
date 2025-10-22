@@ -1,0 +1,22 @@
+1)O que acontece se você não passar o segundo parâmetro ([]) no useEffect?
+R: Ficará sem um array de dependência, muito importante para o funcionamento do useEffect,
+uma vez que o array de dependência define como o useEffect irá funcionar, se o array estiver
+vazio ([]) ele irá carregar uma vez, quando a página for renderizada. Se estiver atrelado a um
+componente, toda vez que esse componente ser renderizado, o useEffect irá rodar.
+
+2)Explique o conceito de props no React. Por que é importante que
+componentes recebam dados através das props?
+R: Para definir os atributos e comportamentos do componente, os props funcionam como
+parâmetros, e o componente muda conforme os props que são passados. Por exemplo, um
+componente de botão que tem um props "cor", quando você instanciar o componente, pode
+mudar a cor dele (ex: <Botão cor="red" />).
+
+3)O que o TailwindCSS oferece de vantagem em relação ao CSS tradicional?
+R: Ele oferece mais praticidade, com elementos de CSS predefinidos em classes, então
+você tem um aumento na produtividade, pois não precisará definir cada parte do CSS de
+seu elemento/div. Por exemplo, ao invés de você precisar criar um CSS definindo display
+flex e justify-content center, você usa "flex justify-center" no Tailwind.
+
+4)Identifique o problema no código abaixo e marque a alternativa que exibe o
+problema do código.
+R: Alternativa C.
