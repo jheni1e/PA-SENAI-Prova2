@@ -5,10 +5,12 @@ import './App.css'
 function App() {
   const [user, setUsers] = useState([]);
   const [endereco, setEndereco] = useState("");
+  const [habilidades, setHabilidades] = useState("");
 
   useEffect(() => {
     getUsers();
-    getEndereco();
+    getEndereco(user);
+    getHabilidades(user);
   }, []);
 
   const getUsers = async () => {
@@ -16,16 +18,16 @@ function App() {
     setUsers(response.data);
   }
 
-  const getEndereco = () => {
+  const getEndereco = (user) => {
     setEndereco(`${user.endereco.rua}, ${user.endereco.numero} — ${user.endereco.cidade}, ${user.endereco.estado}`)
   }
 
-  // console.log(user.endereco.rua)
-  // console.log(user.endereco.cidade)
-  // console.log(user.habilidades[0])
-  // console.log(user.habilidades[1])
-  // console.log(user.habilidades[2])
-  // console.log(user.habilidades[3])
+  const getHabilidades = (user) => {
+    setHabilidades(user.habilidades[0], user.habilidades[1], user.habilidades[2], user.habilidades[3])
+  }
+
+  console.log(`${user.endereco.rua}, ${user.endereco.numero} — ${user.endereco.cidade}, ${user.endereco.estado}`)
+  console.log(user.habilidades[0], user.habilidades[1], user.habilidades[2], user.habilidades[3])
 
   return (
     <>
@@ -35,16 +37,7 @@ function App() {
           <p className="mb-2 text-2xl"><strong>Idade:</strong> {user.idade}</p>
           <p className="mb-2 text-2xl"><strong>Email:</strong> {user.email}</p>
           <p className="mb-2 text-2xl"><strong>Endereço:</strong> {endereco}</p>
-          {/* <p className="mb-2 text-2xl"><strong>Stacks: </strong> {user.habilidades[0]}, {user.habilidades[1]} <br />
-          {user.habilidades[2]}, {user.habilidades[3]}</p> */}
-          {/* <ul>
-            {user.habilidades.map(item, index => (
-              <li
-                className="text-lg m-2 mb-2 cursor-pointer">
-                {user.habilidades[index]}
-              </li>
-            ))}
-          </ul> */}
+          <p className="mb-2 text-2xl"><strong>Stacks: </strong> {habilidades}</p>
         </div>
         <div className="flex flex-col text-left">
           <h2 className="ml-10 mt-5 mb-5 text-5xl font-bold">Projetos</h2>
